@@ -40,7 +40,7 @@ app.get('/ask-me', async (req, res) => {
     try {
         const chatCompletion = await openai.chat.completions.create({
             // messages: [{ role: "user", content: "Say this is a test" }],
-            model: "gpt-4o-mini",
+            model: "gpt-3.5-turbo",
             messages,
             temperature: 0.5,
         });
@@ -123,7 +123,7 @@ app.get('/function-calling', async (req, res) => {
         //pass the messages you got from api and tool which have all your functions
         //tool_choice auto means the model decide autmatically to run one or more functions, tool_choice also has value none if you dont want to run any function or by defining your function instead of auto or none to tell it to run only that function
         const response = await openai.chat.completions.create({
-            model: "gpt-4o",
+            model: "gpt-3.5-turbo",
             messages: messages,
             tools: tools,
             tool_choice: "auto",
@@ -162,7 +162,7 @@ app.get('/function-calling', async (req, res) => {
             
             console.log('New messages : ',messages);
             const secondResponse = await openai.chat.completions.create({
-                model: "gpt-4o",
+                model: "gpt-3.5-turbo",
                 messages: messages,
             });
 
