@@ -72,7 +72,7 @@ app.get('/ask-me', async (req, res) => {
 //Function Calling
 
 const getCurrentWeather = async (city, unit = "fahrenheit") => {
-    const apiKey = 'e8b983c01336032c3adc12286bcc56d7';
+    const apiKey = process.env.Open_WEATHER_API_KEY;
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
         const data = await response.json();
